@@ -8,36 +8,24 @@ namespace BinarySearchTree
 {
     public class BinarySearchTree
     {
-        public BinarySearchTree()
+        public void AddNode(int value)
         {
-            _binaryNodes = new List<BinaryNode>();
+            if (_root == null)
+            {
+                _root = new BinaryNode(value);
+                return;
+            }
+
+            if (_root.Value == value) return;
+
+            _root.AddNode(value);
         }
 
-        public BinaryNode AddNode()
-        {
-            BinaryNode newNode = null;
-            BinaryNode lastNode = _binaryNodes.LastOrDefault();
-            if (lastNode == null)
-            {
-                newNode = new BinaryNode();
-            }
-            else
-            {
-                newNode = lastNode.AddNode();
-            }
-            
-            _binaryNodes.Add(newNode);
-            return newNode;
-        }
+        private BinaryNode _root;
 
-        private readonly List<BinaryNode> _binaryNodes;
-
-        public bool Contains(BinaryNode node, int value)
+        public bool Contains(int value)
         {
-            if (node.Value == value) return true;
-            if (node.Left != null && node.Left.Value == value) return true;
-            if (node.Right != null && node.Right.Value == value) return true;
-            return false;
+            return _root.Contains(value);
         }
     }
 }

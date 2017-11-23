@@ -10,16 +10,23 @@ namespace BinarySearchTree.Tests
 {
     public class BinarySearchTreeTests
     {
-        [Fact]
-        public void HappyPath()
+        [Theory]
+        [InlineData(new[] { 2, 1, 3 }, 3, true)]
+        [InlineData(new[] { 2, 1, 3 }, 4, false)]
+        [InlineData(new[] { 1, 2, 3 }, 3, true)]
+        [InlineData(new[] { 1, 2, 3 }, 4, false)]
+        [InlineData(new[] { 5, 1, 9, 3, 5, 2 }, 3, true)]
+        [InlineData(new[] { 5, 1, 9, 3, 5, 2 }, 4, false)]
+        public void Contains_WorksAsExpected(int[] values, int testValue, bool expectedResult)
         {
             var binarySearchTree = new BinarySearchTree();
 
-            var n1 = binarySearchTree.AddNode();
-            var n2 = binarySearchTree.AddNode();
-            var n3 = binarySearchTree.AddNode();
+            foreach (var value in values)
+            {
+                binarySearchTree.AddNode(value);
+            }
 
-            binarySearchTree.Contains(n2, 3).Should().BeTrue();
+            binarySearchTree.Contains(testValue).Should().Be(expectedResult);
         }
     }
 }
