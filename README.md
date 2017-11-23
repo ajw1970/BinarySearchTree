@@ -9,3 +9,9 @@ n2 (Value: 2, Left: n1, Right: n3)
 n3 (Value: 3, Left: null, Right: null)
 
 Call to Contains(n2, 3) should return true since a tree with root at n2 contains number 3.
+
+# Upon further consideration... 
+
+From Wikipedia: 
+
+In computer science, binary search trees (BST), sometimes called ordered or sorted binary trees, are a particular type of containers: data structures that store "items" (such as numbers, names etc.) in memory.
