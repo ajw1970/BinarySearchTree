@@ -1,26 +1,15 @@
-﻿// file:	BinarySearchTree.cs
-//
-// summary:	Implements the binary search tree class
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BinarySearchTree
+﻿namespace BinarySearchTree
 {
-    /// <summary>   A binary search tree. </summary>
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /// <summary>
+    /// A binary search tree allowing nodes to be added to the tree and a check to see if a given
+    /// value exists in the tree. The Binary Search Tree allows quickly finding a value in the tree
+    /// without having to look at every member.
+    /// </summary>
     public class BinarySearchTree
     {
-        /// <summary>   Adds a node. </summary>
+        /// <summary>   Adds a node to the tree for a given value. </summary>
         ///
-        /// <param name="value">    The int to test for containment. </param>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        /// <param name="value">    The int to add to the tree. </param>
         public void AddNode(int value)
         {
             if (_root == null)
@@ -34,19 +23,16 @@ namespace BinarySearchTree
             _root.AddNode(value);
         }
 
-        /// <summary>   The root. </summary>
-        private BinaryNode _root;
-
-        /// <summary>   Query if this object contains the given value. </summary>
+        /// <summary>   Query if this tree contains the given value. </summary>
         ///
         /// <param name="value">    The int to test for containment. </param>
         ///
-        /// <returns>   True if the object is in this collection, false if not. </returns>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        /// <returns>   True if the value is in this collection, false if not. </returns>
         public bool Contains(int value)
         {
             return _root.Contains(value);
         }
+
+        private BinaryNode _root;
     }
 }
